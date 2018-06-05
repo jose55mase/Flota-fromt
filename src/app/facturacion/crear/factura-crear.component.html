@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="container">
+            <mat-card class="example-card">
+                Factura : N° <br>
+                <hr>
+                Fecha de emisión : {{myDate}}
+                Empresa : <input type="text" class="formulario" id="empresa"  name="empresa" value="Auto Buses El Poblado Laureles S.A."><br>
+                Nit :  <input type="text" class="formulario" id="nit"  name="nit" value="830014703"><br>
+                Numero Resolucion : <input type="text" class="formulario" id="resolucion"  name="resolucion" value=""><br>
+                Tipo de contrubuyente : <input type="text" class="formulario" id="contrubuyente"  name="contrubuyente" value="Juridica"><br>
+                Celular :<input type="text" class="formulario" id="celular"  name="celular" value=""><br>
+                Telefono : <input type="text" class="formulario" id="telefono"  name="telefono" value="(4)2611515"><br>
+                Correo :<input type="text" class="formulario" id="correo"  name="correo" value="poblado@gmail.com"><br>
+                Direccion : <input type="text" class="formulario" id="direccion"  name="direccion" value="CARRERA 44 24 91, MEDELLIN, ANTIOQUIA "><br>
+            </mat-card>
+        </div>
+    </div>    
+        <hr>
+        <br>
+    <div class="col-sm-6">    
+        <div class="container">
+            <mat-card class="example-card">
+                Proveedor : <input type="text" class="formulario" id="proveedor"  name="proveedor" ><br>
+                Nit : <input type="text" class="formulario" id="proveedor"  name="proveedor" ><br>
+                Fecha pedido : <input type="text" class="formulario" id="proveedor"  name="proveedor" ><br>
+                Pais : <input type="text" class="formulario" id="proveedor"  name="proveedor" ><br>
+                Ciudad : <input type="text" class="formulario" id="proveedor"  name="proveedor" ><br>
+                Contacto : <input type="text" class="formulario" id="proveedor"  name="proveedor" ><br>
+            </mat-card>
+        </div>
+    </div>    
+</div>    
+
+
+<div class="container">
+    <h2></h2>
+    <p></p>            
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Descripcion</th>
+            <th>Cantidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="form-control" id="producto" placeholder="Ingrese un Producto" name="producto"></td>
+            <td><mat-form-field> <textarea matInput placeholder="Describa el producto Productos"  name="descripcion" ></textarea></mat-form-field></td>
+            <td><input type="number" class="form-control" id="cantidad" placeholder="Cantidad de Productos" name="cantidad"> </td>
+        </tr>
+        
+        </tbody>
+    </table>
+</div>
+

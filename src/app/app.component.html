@@ -1,0 +1,120 @@
+
+<script type="text/javascript" src="validaciones.js"></script>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="active"><img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100"></a><br><br>  
+  <a class="navbar-brand">   Autobuses el poblado laureles </a>
+    <form class="form-inline">
+      <div *ngIf="usuarioLogMenu">
+        <button mat-button [matMenuTriggerFor]="menu">  {{lognombre}} {{logApellido}}</button>
+        <mat-menu #menu="matMenu" >
+          <button mat-menu-item>{{lognombre}} {{logApellido}}</button>
+          <button mat-menu-item>Usuario : {{logUsuario}}</button>
+          <button mat-menu-item> Tipo de usuario :  {{logCargo}}</button>           
+          <a mat-button (click)="cerrarSesion()">  Cerrar sesion</a>           
+        </mat-menu>
+      </div>  
+        <a mat-button (click)="cerrarSesion()">  Cerrar sesion</a>
+    </form>
+  </nav> 
+<mat-tab-group>    
+  <div *ngIf="!inicio"> 
+    <mat-tab label="Inicio"> <!--Invitado-->
+      <div class="container">
+        <mat-card>
+          <img src="https://i.ytimg.com/vi/NnOQugDSAT8/maxresdefault.jpg" width="100%" height="100%">
+        </mat-card>
+      </div>  
+    </mat-tab>
+  </div>  
+
+  <div *ngIf="logIn" > <!--Registrado Usuario-->
+    <mat-tab id="login" label="Ingresa Para iniciar sesion"> <a class="active"></a><!--Log de la App-->        
+      <br>
+      <div class="container">        
+        <mat-card>
+          <h3>Iniciar sesion</h3>
+        </mat-card>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title><img src="http://www.marketingdirecto.com/wp-content/uploads/2012/04/candado.png" width="150" height="100"></mat-card-title>
+            <mat-card-subtitle>Hola necesitan las llaves ? </mat-card-subtitle>
+          </mat-card-header>
+
+            <form>
+              <input type="text" name="search" placeholder="Usuario de ingreso" [(ngModel)]="usuarios">
+              <br><br>         
+              <input type="password" name="search"  placeholder="Clave de ingreso" [(ngModel)]="claves">
+            </form>
+            <hr>           
+          <mat-card-content> 
+            <div class="container">
+                <button mat-button class="btn btn-primary btn-block"  (click)="ingresar()">Vamos a trabajar</button>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+              <img src="http://www.autopobla.com.co/ESW/Images/Logo_Autobuses.jpg" width="150" height="100">
+          </mat-card-actions>
+        </mat-card>
+      </div>      
+    </mat-tab>
+  </div>   
+
+  <div *ngIf="nosotros" > <!--Invitado-->
+    <mat-tab label="Nosotros">
+      este sera el contenido del las tabla nosotros o demas contenido importante
+    </mat-tab>      
+  </div>
+
+  <div *ngIf="!ayudas" ><!--Invitado-->
+    <mat-tab label="Ayudas">
+      Ayuda con respecto a lo que ser necesita con el aplicativo        
+    </mat-tab>    
+  </div>
+
+    <div *ngIf="!modulos" ><!--Registrado Usuario-->      
+        <mat-tab label="Modulos">
+            <div class="col-xl-10">
+              <app-modulos></app-modulos>              
+            </div>            
+        </mat-tab>          
+    </div> 
+    
+    
+    <div *ngIf="tablas" > <!--Registrado Usuario-->      
+      <mat-tab label="Tablas">
+        <tablas></tablas>         
+      </mat-tab>
+    </div>
+
+    <div *ngIf="menu" ><!--Invitado-->
+      <mat-tab label="Menu">
+          <mat-spinner></mat-spinner>
+      </mat-tab>  
+    </div>
+  
+    <div *ngIf="!material" ><!--Invitado-->
+      <mat-tab label="Material"><!--Invitado-->
+        <app-entrar-app></app-entrar-app>
+      </mat-tab>
+    </div> 
+
+    <div *ngIf="permisos" ><!--Invitado-->
+      <mat-tab label="Permisos"><!--Invitado-->
+        <permisos></permisos>
+      </mat-tab>
+    </div>
+
+    <div *ngIf="conductor" ><!--Invitado-->
+      <mat-tab label="Conductor">
+        <conductor-modulo></conductor-modulo>
+      </mat-tab>  
+    </div>
+
+    <div *ngIf="!dannos" ><!--Invitado-->
+      <mat-tab label="Danos vehiculo">
+        <dannos></dannos>
+      </mat-tab>  
+    </div>
+</mat-tab-group>

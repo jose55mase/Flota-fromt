@@ -1,0 +1,115 @@
+<div class="container"> 
+ 
+
+  <mat-grid-list cols="4" rowHeight="4:1">
+      <mat-grid-tile>
+         <!-- Permiso para la junta -->
+        <button mat-button [matMenuTriggerFor]="junta">Junta</button>
+        <mat-menu #junta="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="menu">Junta</button>  
+        </mat-menu>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="f">Permisos</button>  
+        </mat-menu>
+        <mat-menu #f="matMenu">
+          <button mat-menu-item>Usuario de junta</button>
+          <button mat-menu-item>.....</button>
+          <button mat-menu-item>.....</button> 
+          <button mat-menu-item>.....</button> 
+        </mat-menu>
+      </mat-grid-tile>
+      <!-- ////// -->
+      <mat-grid-tile>
+         <!-- Permiso para la Gerencia -->  
+        <button mat-button [matMenuTriggerFor]="a">Gerencia</button>
+        <mat-menu #a="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="b">Gerencia</button>  
+        </mat-menu>
+        <mat-menu #b="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="f">Permisos</button>  
+        </mat-menu>
+        <mat-menu #f="matMenu">
+          <button mat-menu-item>Usuario de Gerencia</button>
+          <button mat-menu-item>.....</button>
+          <button mat-menu-item>.....</button> 
+          <button mat-menu-item>.....</button> 
+        </mat-menu>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <button mat-button [matMenuTriggerFor]="a">Jefe Taller</button>
+        <mat-menu #a="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="b">Jefe Taller</button>  
+        </mat-menu>
+        <mat-menu #b="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="f">Permisos</button>  
+        </mat-menu>
+        <mat-menu #f="matMenu">
+          <button mat-menu-item>Usuario de Jefe Taller</button>
+          <button mat-menu-item>.....</button>
+          <button mat-menu-item>.....</button> 
+          <button mat-menu-item>.....</button> 
+        </mat-menu>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <button mat-button [matMenuTriggerFor]="a">Administrador</button>
+        <mat-menu #a="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="b">Administrador</button>  
+        </mat-menu>
+        <mat-menu #b="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="f">Administrador</button>  
+        </mat-menu>
+        <mat-menu #f="matMenu">
+          <button mat-menu-item>Usuario de Gerencia</button>
+          <button mat-menu-item>.....</button>
+          <button mat-menu-item>.....</button> 
+          <button mat-menu-item>.....</button> 
+        </mat-menu>
+      </mat-grid-tile>      
+  </mat-grid-list>
+</div>
+
+
+
+
+<div class="example-header">
+    <mat-form-field>
+      <input matInput  (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+
+<mat-table #table [dataSource]="elemento">
+    
+   Position Column 
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> S.No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> name. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <mat-header-cell *matHeaderCellDef> weight. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <mat-header-cell *matHeaderCellDef> symbol. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+  </ng-container>
+  
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+</mat-table>
+<mat-paginator #paginator
+[pageSize]="5"
+[pageSizeOptions]="[5, 10, 20]"
+[showFirstLastButtons]="true">
+</mat-paginator>

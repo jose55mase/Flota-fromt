@@ -1,0 +1,113 @@
+
+<mat-card class="example-card" >
+    <br>
+    <div *ngIf="validar" class="alert alert-danger">
+      <strong>Tenemos problemas !</strong><br>
+      <p>Recuerda llenar todos los campos  </p> 
+    </div>
+    <br>
+  <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <a class="active"><img src="https://png.icons8.com/metro/1600/create-new.png" width="70" height="60"></a><br><br> 
+        </mat-expansion-panel-header>
+        <br>
+        <br>
+       
+        <br>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Nuevo usuario</mat-card-title>         
+          <mat-icon svgIcon="thumbs-up"></mat-icon>
+        </mat-card-header>
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Nombre de persona" id="nombre" name="nombre" [(ngModel)]="user.nombre">            
+          </mat-form-field>
+          <h6 *ngIf="nombreCampo" class="alert alert-danger"><p>{{nombreValidar}}</p></h6>
+        </div>  
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Apellido de persona" name="apellido" [(ngModel)]="user.apellido">
+          </mat-form-field>
+          <h6 *ngIf="apellidoCampo"  class="alert alert-danger" ><p>{{apellidoValidar}}</p></h6>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Cedula de persona" name="cedula" [(ngModel)]="user.cedula">
+          </mat-form-field>
+          <h6 *ngIf="cedulaCampo"  class="alert alert-danger"><p>{{cedulaValidar}}</p></h6>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Correo de persona" name="correo" [(ngModel)]="user.correo">
+          </mat-form-field> 
+          <h6 *ngIf="correoCampo"  class="alert alert-danger"><p>{{correoValidar}}</p></h6>
+        </div>
+            
+        
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <a class="active"><img src="https://png.icons8.com/metro/1600/create-new.png" width="70" height="60"></a><br><br> 
+        </mat-expansion-panel-header> 
+        <br>
+        <br>
+          <div class="form-group"> 
+              <mat-form-field>
+                <input type="number" matInput placeholder="Telefono de persona" name="telefono" [(ngModel)]="user.telefono">
+              </mat-form-field>
+              <h6 *ngIf="telefonoCampo"  class="alert alert-danger" ><p>{{telefonoValidar}}</p></h6>
+            </div>
+            <div class="form-group">   
+              <mat-form-field>
+                <input matInput placeholder="Usuario para la persona"  name="usuario" [(ngModel)]="user.usuario">
+              </mat-form-field>
+              <h6 *ngIf="usuarioCampo"  class="alert alert-danger"><p>{{usuarioValidar}}</p></h6>
+            </div>
+
+            <div class="form-group">   
+              <mat-form-field>
+                  <input matInput placeholder="clave para la persona " name="clave" [(ngModel)]="user.clave">
+              </mat-form-field>
+              <h6 *ngIf="claveCampo"  class="alert alert-danger" ><p>{{claveValidar}}</p></h6>
+            </div> 
+          
+            
+            
+            <mat-form-field>
+              <mat-select placeholder="Seleccione Cargo" [(ngModel)]="user.cargo">
+                <mat-option value="Invitado">Invitado</mat-option>
+                <mat-option value="Junta">Junta</mat-option>
+                <mat-option value="Gerencia">Gerencia</mat-option>
+                <mat-option value="Jefe Taller">Jefe Taller</mat-option>     
+                <mat-option value="Administrador">Administrador</mat-option>                
+              </mat-select>
+            </mat-form-field> 
+            <br>                  
+          
+          
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Fecha de creacion">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>    
+
+      </mat-expansion-panel>
+    </mat-accordion>
+    
+    <br>
+
+    <br>
+       
+    <label>Crea un Usuario Activo</label>
+    <label >
+        <input   class="seleccion" type="radio" name="estado" [value]="true" [(ngModel)]="user.estado">
+    </label>
+
+    <mat-card-actions>
+        <button type="button" class="btn btn-primary btn-block" (click)="saveOrUpdate()">Crear usuario nuevo</button>
+    </mat-card-actions>
+</mat-card>

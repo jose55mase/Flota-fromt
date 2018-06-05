@@ -1,0 +1,78 @@
+
+<div class="row">
+
+  <div class="col-md-3">
+    <mat-card class="example-card">  
+      <mat-accordion>  
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                Usuarios
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button routerLink="usuarios-router">Usuarios</button>  
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                Mantenimiento
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button routerLink="mantenimiento-router">Mantenimiento</button> 
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                Autobuses
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button routerLink="autobuse-router">Autobuses</button>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                Proveedor
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button>Proveedor</button> 
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                Facturacion
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button routerLink="factura-router">Facturacion</button> 
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                Conductor
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button routerLink="conductor-router">Conductor</button> 
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>      
+              <mat-panel-description>
+                  Item
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button mat-button>Item</button>
+        </mat-expansion-panel>
+      </mat-accordion>  
+    </mat-card>    
+  </div>
+  <div id ="modulo" class="col-lg-9">
+      <router-outlet></router-outlet>
+   </div>  
+
+</div>  
+
+ 
